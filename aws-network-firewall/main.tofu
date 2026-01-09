@@ -149,14 +149,12 @@ output "firewall_arn" {
   value = one(one(aws_networkfirewall_firewall.example.firewall_status).sync_states).attachment[0].endpoint_id
 }
 
-// TODO: Fill in with your public key details
 resource "aws_key_pair" "this" {
   key_name   = "aws_example"
-  public_key = ""
+  public_key = var.public_ssh_key_material
 }
 
 // Create public EC2 for SSH access
-// TODO: Add your CIDR
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
@@ -168,7 +166,7 @@ module "ec2_instance" {
   associate_public_ip_address = true
   security_group_ingress_rules = {
     apartment = {
-      cidr_ipv4   = ""
+      cidr_ipv4   = var.cidr
       from_port   = 22
       to_port     = 22
       ip_protocol = "tcp"
