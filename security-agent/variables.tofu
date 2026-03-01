@@ -37,7 +37,7 @@ variable "instance_type" {
 }
 
 variable "dns_account_id" {
-    type = string
+  type = string
 }
 
 variable "domain_name" {

@@ -63,7 +63,7 @@ resource "aws_security_group" "web_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-    ingress {
+  ingress {
     description = "HTTP from anywhere (IPv4)"
     from_port   = 80
     to_port     = 80
@@ -118,17 +118,17 @@ locals {
 resource "aws_network_interface" "app_eni" {
   subnet_id       = var.public_subnet_id
   security_groups = [aws_security_group.web_sg.id]
-  tags = { Name = "${var.name}-eni" }
+  tags            = { Name = "${var.name}-eni" }
 }
 
 
 # EC2 instance
 resource "aws_instance" "app" {
-  ami                    = data.aws_ami.amazon_linux.id
-  instance_type          = var.instance_type
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = var.instance_type
   # subnet_id              = var.public_subnet_id
   # vpc_security_group_ids = [aws_security_group.web_sg.id]
-  key_name               = var.key_name
+  key_name = var.key_name
 
   # associate_public_ip_address = false
 
