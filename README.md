@@ -1,6 +1,6 @@
-# tech-blog
+# The Tech Troupe Code
 
-This repository is for learning purposes and follows hands-on blog posts published at [techtroupe.com](https://techtroupe.com).
+This repository is for learning purposes and follows hands-on blog posts published at [thetechtroupe.com](https://thetechtroupe.com).
 
 ## What This Repo Is
 
