@@ -35,3 +35,6 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Commit sanitized sample tfvars for blogs
+!verified-access/sample.tfvars
